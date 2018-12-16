@@ -8,6 +8,7 @@
 
 <body>
     <h1>Login Page</h1>
+    <a href="/registration">Registration</a>
     <p th:if="${param.error}">Invalid username and password.</p>
     <p th:if="${param.logout}">You have been logged out.</p>
     <form th:action="@{/login}" method="post">

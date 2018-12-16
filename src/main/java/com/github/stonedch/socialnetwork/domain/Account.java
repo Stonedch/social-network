@@ -13,7 +13,7 @@ public class Account {
     private String password;
     private boolean active;
     @ElementCollection(targetClass = Role.class, fetch = FetchType.EAGER)
-    @CollectionTable(name = "account_role", joinColumns = @JoinColumn(name="user_id"))
+    @CollectionTable(name = "account_role", joinColumns = @JoinColumn(name="account_id"))
     @Enumerated(EnumType.STRING)
     private Set<Role> roles;
 
