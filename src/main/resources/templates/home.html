@@ -21,11 +21,12 @@
         <button type="submit">Write</button>
     </form>
 
-    <h2>Messages</h2>
+    <h2>Stories</h2>
     <div th:each="story : ${storyList}">
         <span th:text="${story.id}">0</span>
         <span th:text="${story.tag}">Lorem</span>
         <span th:text="${story.content}">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>
+        <span th:text="${story.authorName}">Lorem</span>
     </div>
 
 </body>

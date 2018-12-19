@@ -1,8 +1,10 @@
 package com.github.stonedch.socialnetwork.controller;
 
+import com.github.stonedch.socialnetwork.domain.Account;
 import com.github.stonedch.socialnetwork.domain.Story;
 import com.github.stonedch.socialnetwork.repository.StoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,7 +26,9 @@ public class HomeController {
     }
 
     @PostMapping
-    public String addStory(@ModelAttribute Story story) {
+    public String addStory(@ModelAttribute Story story,
+                           @AuthenticationPrincipal Account account) {
+        story.setAuthor(account);
         storyRepository.save(story);
         return "redirect:/home";
     }
