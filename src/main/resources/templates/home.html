@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+</head>
+
+<body>
+
+    <h1>Home Page</h1>
+    <p th:text="'Hello, ' + ${#httpServletRequest.remoteUser} + '!'"></p>
+    <form th:action="@{/logout}" method="post">
+        <button type="submit">Logout</button>
+    </form>
+
+    <h2>Write Story</h2>
+    <form action="#" method="post" th:action="@{/home}" th:object="${newStory}">
+        <input placeholder="#" type="text" th:field="*{tag}" autocomplete="off">
+        <input placeholder="Story content" type="text" th:field="*{content}" required autocomplete="off">
+        <button type="submit">Write</button>
+    </form>
+
+    <h2>Messages</h2>
+    <div th:each="story : ${storyList}">
+        <span th:text="${story.id}">0</span>
+        <span th:text="${story.tag}">Lorem</span>
+        <span th:text="${story.content}">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>
+    </div>
+
+</body>
+
+</html>
