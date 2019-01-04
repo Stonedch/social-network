@@ -21,6 +21,11 @@
         <button type="submit">Write</button>
     </form>
 
+    <form method="GET" action="/home">
+        <input type="text" name="filter">
+        <button type="submit">Найти</button>
+    </form>
+
     <h2>Stories</h2>
     <div th:each="story : ${storyList}">
         <span th:text="${story.id}">0</span>

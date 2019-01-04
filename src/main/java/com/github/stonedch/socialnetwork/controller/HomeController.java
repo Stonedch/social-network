@@ -7,10 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping("/home")
@@ -19,9 +16,15 @@ public class HomeController {
     private StoryRepository storyRepository;
 
     @GetMapping
-    public String getHome(Model model) {
+    public String getHome(@RequestParam(required = false) String filter,
+                          Model model) {
+        if (filter != null && !filter.isEmpty()) {
+            model.addAttribute("filter", filter);
+            model.addAttribute("storyList", storyRepository.findByTag(filter));
+        } else {
+            model.addAttribute("storyList", storyRepository.findAll());
+        }
         model.addAttribute("newStory", new Story());
-        model.addAttribute("storyList", storyRepository.findAll());
         return "home";
     }
 
