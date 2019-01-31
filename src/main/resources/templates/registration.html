@@ -7,16 +7,21 @@
 </head>
 
 <body>
-    <h1>Registration Page</h1>
+    <h1>Create a new account</h1>
     <a href="/login">Sign in</a>
     <p th:if="${message}" th:text="${message}"></p>
     <form th:action="@{/registration}" method="post">
         <label for="username">Username:</label>
         <input id="username" type="text" th:name="username" autofocus="autofocus" />
         <label for="password">Password:</label>
-        <input id="password" type="password" th:name="password" />
-        <button type="submit">Login</button>
+        <input id="password" type="password" th:name="password" onkeyup="check();" />
+        <label for="password">Confirm password:</label>
+        <input id="confirm_password" type="password" onkeyup="check();" />
+        <button id="submit" type="submit" disabled>Sign Up</button>
     </form>
+
+    <script type="text/javascript" src="/js/main.js"></script>
+
 </body>
 
 </html>
