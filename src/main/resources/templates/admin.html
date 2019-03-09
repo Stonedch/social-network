@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+
+<html xmlns:th="www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Page</title>
+</head>
+
+<body>
+
+    <h1>Admin Page</h1>
+
+    <h2>Account List</h2>
+    <div th:each="account : ${accountList}">
+        <span th:text="${account.id}">0</span>
+        <span th:text="${account.username}">TestUser</span>
+        <span th:text="${account.roles}">User</span>
+        <a href="/admin">edit</a>
+    </div>
+
+</body>
+
+</html>
