@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+
+<html xmlns:th="www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Account Edit</title>
+</head>
+
+<body>
+
+    <h1>Account Edit</h1>
+
+    <form th:action="@{/admin}" method="POST">
+        <input type="hidden" th:name="id" th:value="${account.id}">
+        <input type="text" th:name="username" th:value="${account.username}">
+        <div th:each="role : ${roles}">
+            <input id="checkboxRole" type="radio" th:value="${role}" th:name="roles" th:checked="${role}">
+            <label for="checkboxRole" th:text="${role}"></label>
+        </div>
+        <button type="submit">Save</button>
+    </form>
+
+</body>
+
+</html>

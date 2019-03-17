@@ -16,7 +16,7 @@
         <span th:text="${account.id}">0</span>
         <span th:text="${account.username}">TestUser</span>
         <span th:text="${account.roles}">User</span>
-        <a href="/admin">edit</a>
+        <a th:href="'/admin/' + ${account.id}">edit</a>
     </div>
 
 </body>
