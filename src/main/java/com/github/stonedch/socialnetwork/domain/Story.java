@@ -12,6 +12,7 @@ public class Story {
     private Account author;
     private String content;
     private String tag;
+    private String filename;
 
     public Story() {
     }
@@ -60,5 +61,13 @@ public class Story {
 
     public void setTag(String tag) {
         this.tag = tag;
+    }
+
+    public String getFilename() {
+        return filename;
+    }
+
+    public void setFilename(String filename) {
+        this.filename = filename;
     }
 }

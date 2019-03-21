@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Home</title>
+    <link rel="stylesheet" href="/css/main.css">
 </head>
 
 <body>
@@ -15,9 +16,10 @@
     </form>
 
     <h2>Write Story</h2>
-    <form action="#" method="post" th:action="@{/home}" th:object="${newStory}">
+    <form action="#" method="post" enctype="multipart/form-data" th:action="@{/home}" th:object="${newStory}">
         <input placeholder="#" type="text" th:field="*{tag}" autocomplete="off">
         <input placeholder="Story content" type="text" th:field="*{content}" required autocomplete="off">
+        <input type="file" name="file">
         <button type="submit">Write</button>
     </form>
 
@@ -32,6 +34,9 @@
         <span th:text="${story.tag}">Lorem</span>
         <span th:text="${story.content}">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>
         <span th:text="${story.authorName}">Lorem</span>
+        <div>
+            <img th:src="'/upload-images/' + ${story.filename}">
+        </div>
     </div>
 
 </body>
