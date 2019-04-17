@@ -11,6 +11,7 @@
     <a href="/registration">Registration</a>
     <p th:if="${param.error}">Invalid username and password.</p>
     <p th:if="${param.logout}">You have been logged out.</p>
+    <p th:if="${message}" th:text="${message}"></p>
     <form th:action="@{/login}" method="post">
         <label for="username">Username:</label>
         <input id="username" type="text" th:name="username" autofocus="autofocus" />

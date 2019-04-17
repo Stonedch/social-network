@@ -13,6 +13,8 @@
     <form th:action="@{/registration}" method="post">
         <label for="username">Username:</label>
         <input id="username" type="text" th:name="username" autofocus="autofocus" />
+        <label for="email">Email:</label>
+        <input id="email" type="email" th:name="email" />
         <label for="password">Password:</label>
         <input id="password" type="password" th:name="password" onkeyup="check();" />
         <label for="password">Confirm password:</label>
